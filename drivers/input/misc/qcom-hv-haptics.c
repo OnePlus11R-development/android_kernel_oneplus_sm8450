@@ -1004,6 +1004,8 @@ static int haptics_get_status_data(struct haptics_chip *chip,
 		name = "CLAMPED_DUTY_CYCLE_STS";
 	else if (sel == FIFO_REAL_TIME_STS)
 		name = "FIFO_REAL_TIME_STS";
+	else
+		return -EINVAL;
 
 	dev_dbg(chip->dev, "Get status data[%s] = (%#x, %#x)\n", name, data[0], data[1]);
 	trace_qcom_haptics_status(name, data[0], data[1]);
